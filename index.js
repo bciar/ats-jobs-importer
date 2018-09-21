@@ -31,20 +31,24 @@ crelate.getJobs()
 
 
 /*---------------------Green House API---------------------------------*/
-/*const GreenHouse = require('./greenhouse');
+/* const GreenHouse = require('./greenhouse');
 const green_house_client = new GreenHouse();
 
 //Test with get the list of jobs from greenhouse
 green_house_client.getJobs()
 .then(response => {
-    console.log('Jobs from GreenHouse', response.data.jobs);
+    // console.log('Jobs from GreenHouse', response.data.jobs);
+    const jobs = response.data.jobs;
+    jobs.forEach(job => {
+        green_house_client.getByID(job.id)
+            .then(detail => {
+                console.log('Job Title: ', detail.data.title);
+                console.log('Job Link: ', detail.data.absolute_url);
+                console.log('Job Location: ', detail.data.offices[0].location);
+                console.log('\n');
+            })
+            .catch(print_error);
+    });
 })
-.catch(print_error);
-
-//Test with get the the job with id 4075608002
-green_house_client.getByID(4075608002)
-.then(response => {
-    console.log('Job Detail:', response.data);
-})
-.catch(print_error);*/
+.catch(print_error); */
 /*------------------------------------------------------------------------*/
